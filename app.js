@@ -39,8 +39,8 @@ function healthDisplay(){
                 }
     })
 
-  let bossElem =  document.getElementById(boss.name)
-  bossElem.innerText = `${boss.name} - ${boss.health} - ${boss.damage}`
+let bossElem =  document.getElementById(boss.name)
+bossElem.innerText = `${boss.name} - ${boss.health} - ${boss.damage}`
 }
 
 function healthDisplayGoro(){
@@ -69,6 +69,8 @@ healthDisplay()
     // console.log(hero);
 
 }
+
+
 
 function healthGoAway(){
 if (boss.health > 0) {

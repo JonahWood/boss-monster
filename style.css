@@ -6,3 +6,7 @@ body{
 .goro-size{
     height: 50%;
 }
+
+img{
+    cursor: pointer;
+}
