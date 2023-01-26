@@ -17,7 +17,6 @@ const heroes = [
 const boss = {
     name: 'Goro',
     health: 100,
-    maxHealth: 100,
     damage: 5,
     level: 1,
 }
@@ -28,21 +27,37 @@ function findHero(heroName){
 
 
 }
-console.log(findHero())
+// console.log(findHero())
 
 function healthDisplay(){
     // debugger
     heroes.forEach(hero => {
         let heroElem = document.getElementById(hero.name)
-        console.log('heroElem', heroElem)
-        // let heroh3 = heroElem.querySelector('h3')
-        // console.log(heroh3)
         heroElem.innerText = `${hero.name} - ${hero.health} - ${hero.damage}`
+        if (hero.health <= 0) {
+            hero.health = 0        
+                }
     })
+
+  let bossElem =  document.getElementById(boss.name)
+  bossElem.innerText = `${boss.name} - ${boss.health} - ${boss.damage}`
 }
-console.log(healthDisplay())
 
+function healthDisplayGoro(){
+        let bossElem = document.getElementById(boss.name)
+        bossElem.innerText = `${boss.name} - ${boss.health} - ${boss.damage}`
+}
 
+function heroAttack(){
+console.log("work?")
+    boss.health -= 1
+    console.log(boss.health);
+    healthDisplay()
+    if (boss.health <= 0) {
+        boss.health = 1        
+            }
+}
+// console.log(boss.health -= 10)
 
 
 
@@ -51,7 +66,19 @@ function goroAttack(heroName){
     let hero = heroes.find(h => h.name == heroName);
     hero.health -= 5
 healthDisplay()
-    console.log(hero);
+    // console.log(hero);
+
 }
 
+function healthGoAway(){
+if (boss.health > 0) {
+    setInterval(heroAttack, 200)
+} else {
+    setInterval(heroAttack, 0)
+}
+    
+}
+
+healthGoAway()
 healthDisplay()
+healthDisplayGoro()
